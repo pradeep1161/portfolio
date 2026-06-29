@@ -1,0 +1,16 @@
+{
+  "name": "portfolio-monorepo",
+  "version": "1.0.0",
+  "description": "Full-stack developer portfolio and admin dashboard",
+  "main": "server/app.js",
+  "scripts": {
+    "install-all": "npm install && npm install --prefix client --legacy-peer-deps && npm install --prefix server",
+    "server": "npm start --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

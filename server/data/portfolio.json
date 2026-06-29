@@ -1,0 +1,261 @@
+{
+  "profile": {
+    "name": "Pradeep Tallapally",
+    "title": "AI & Machine Learning Engineer",
+    "subtitle": "Building AI solutions for Healthcare and Real-world Problems.",
+    "avatar": "/uploads/avatar-1781598757324-455285377.png",
+    "resumeUrl": "https://res.cloudinary.com/du88z082l/image/upload/v1782758606/portfolio/RESUME-5-1782758635797.pdf",
+    "bio": "Aspiring AI & ML Engineer passionate about Machine Learning, Deep Learning, Computer Vision, and Full Stack Development. Interested in building practical AI systems that solve real-world problems, particularly in healthcare and data-driven applications.",
+    "email": "tallapallypradeep116@gmail.com",
+    "phone": "+91 9063452001",
+    "location": "Hyderabad, India",
+    "seekingInternship": true,
+    "socials": {
+      "github": "https://github.com/pradeep1161",
+      "linkedin": "https://linkedin.com/in/pradeep-tallapally",
+      "leetcode": "https://leetcode.com/pradeep_116",
+      "codechef": "https://codechef.com/users/pradeep_116",
+      "hackerrank": "https://www.hackerrank.com/profile/pradeep_116",
+      "smartinterviews": "https://smartinterviews.in/profile/pradeep_116",
+      "codeforces": "https://codeforces.com/profile/pradeep_77"
+    }
+  },
+  "education": [
+    {
+      "id": "edu-1",
+      "degree": "B.Tech in Artificial Intelligence & Machine Learning",
+      "school": "CMR Technical Campus",
+      "duration": "2022 - 2026",
+      "grade": " 7.85"
+    },
+    {
+      "id": "edu-1781599351695",
+      "degree": "Intermediate(MPC)",
+      "school": "TSWR COE BOYS BELLAMPALLY",
+      "duration": "2020 - 2022",
+      "grade": "78.2%"
+    },
+    {
+      "id": "edu-1781599433134",
+      "degree": "SSC",
+      "school": "TSWR COE BOYS BELLAMPALLY",
+      "duration": "2019 - 2020",
+      "grade": "9.7"
+    }
+  ],
+  "skills": [
+    {
+      "id": "sk-1",
+      "name": "Python",
+      "category": "Programming",
+      "level": 90
+    },
+    {
+      "id": "sk-2",
+      "name": "C",
+      "category": "Programming",
+      "level": 80
+    },
+    {
+      "id": "sk-3",
+      "name": "C++",
+      "category": "Programming",
+      "level": 85
+    },
+    {
+      "id": "sk-4",
+      "name": "HTML/CSS",
+      "category": "Web",
+      "level": 85
+    },
+    {
+      "id": "sk-5",
+      "name": "JavaScript",
+      "category": "Web",
+      "level": 46
+    },
+    {
+      "id": "sk-6",
+      "name": "MySQL",
+      "category": "Database",
+      "level": 75
+    },
+    {
+      "id": "sk-7",
+      "name": "TensorFlow",
+      "category": "Machine Learning",
+      "level": 85
+    },
+    {
+      "id": "sk-8",
+      "name": "Scikit-learn",
+      "category": "Machine Learning",
+      "level": 85
+    },
+    {
+      "id": "sk-9",
+      "name": "CNN",
+      "category": "Machine Learning",
+      "level": 80
+    },
+    {
+      "id": "sk-10",
+      "name": "EfficientNet",
+      "category": "Machine Learning",
+      "level": 85
+    },
+    {
+      "id": "sk-11",
+      "name": "Grad-CAM",
+      "category": "Machine Learning",
+      "level": 80
+    },
+    {
+      "id": "sk-12",
+      "name": "DSA",
+      "category": "CS Fundamentals",
+      "level": 80
+    },
+    {
+      "id": "sk-13",
+      "name": "OOP",
+      "category": "CS Fundamentals",
+      "level": 85
+    },
+    {
+      "id": "sk-14",
+      "name": "DBMS",
+      "category": "CS Fundamentals",
+      "level": 75
+    },
+    {
+      "id": "sk-15",
+      "name": "OS",
+      "category": "CS Fundamentals",
+      "level": 75
+    },
+    {
+      "id": "sk-16",
+      "name": "CN",
+      "category": "CS Fundamentals",
+      "level": 70
+    },
+    {
+      "id": "sk-17",
+      "name": "VS Code",
+      "category": "Tools",
+      "level": 90
+    },
+    {
+      "id": "sk-18",
+      "name": "Git & GitHub",
+      "category": "Tools",
+      "level": 85
+    },
+    {
+      "id": "sk-19",
+      "name": "Google Colab",
+      "category": "Tools",
+      "level": 90
+    },
+    {
+      "id": "sk-20",
+      "name": "Jupyter Notebook",
+      "category": "Tools",
+      "level": 90
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Seeking Opportunities",
+      "role": "AI/ML Internship",
+      "duration": "Present",
+      "description": "Actively looking for AI/ML and Data Science internship opportunities to apply my skills in deep learning, computer vision, and machine learning to industry challenges."
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "AI-Driven System for Early Diagnosis and Prevention of Diabetic Eye Diseases",
+      "description": "An advanced Deep Learning medical solution designed to detect and grade diabetic retinopathy using retinal fundus images and optical coherence tomography (OCT) scans.",
+      "category": "AI & Deep Learning",
+      "github": "https://github.com/pradeep1161/AI-driven-system-for-early-diagnosis-and-prevention-of-diabetic-eye-diseases.",
+      "demo": "",
+      "features": [
+        "Deep Learning classification powered by EfficientNetV2-S",
+        "Dual analysis of Fundus photographs and OCT scans",
+        "Grad-CAM explainability for medical validation and visualization of pathology regions",
+        "Gemini AI integration for automated medical report summary and recommendations"
+      ],
+      "tech": [
+        "Python",
+        "TensorFlow",
+        "EfficientNetV2",
+        "Grad-CAM",
+        "Gemini AI",
+        "React",
+        "Flask"
+      ],
+      "image": "/uploads/image-1781600979207-684005860.jpg",
+      "screenshots": []
+    },
+    {
+      "id": "proj-2",
+      "title": "Predictive Analysis of Big-Mart Sales",
+      "description": "A machine learning product that forecasts product sales across multiple stores to optimize stock and inventory replenishment operations.",
+      "category": "Machine Learning",
+      "github": "",
+      "demo": "",
+      "features": [
+        "Data cleaning and exploratory analysis of sales variables",
+        "Regression models: Linear Regression, Ridge, and Lasso Regression",
+        "Evaluation using mean absolute error (MAE) and root mean squared error (RMSE)"
+      ],
+      "tech": [
+        "Python",
+        "Scikit-Learn",
+        "Pandas",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "image": "",
+      "screenshots": []
+    }
+  ],
+  "certifications": [
+    {
+      "id": "cert-1",
+      "title": "IBM SkillsBuild AI Fundamentals",
+      "issuer": "IBM",
+      "date": "2024",
+      "url": "https://www.credly.com/badges/35752774-559b-4965-83cc-f60b4ff1634a/public_url"
+    },
+    {
+      "id": "cert-2",
+      "title": "Smart Interviews",
+      "issuer": "Smart Interviews",
+      "date": "2024",
+      "url": ""
+    },
+    {
+      "id": "cert-3",
+      "title": "AI Foundation and Advanced",
+      "issuer": "NASSCOM / Industry partners",
+      "date": "2024",
+      "url": ""
+    }
+  ],
+  "achievements": [
+    {
+      "id": "ach-1",
+      "title": "Smart Interviews",
+      "detail": "Global Rank 7912"
+    },
+    {
+      "id": "ach-2",
+      "title": "CodeChef",
+      "detail": "Global Rank 1332"
+    }
+  ]
+}

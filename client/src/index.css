@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans transition-colors duration-300 antialiased;
+    background-color: #0F172A; /* Fallback Slate 900 */
+    color: #F8FAFC;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-900/50 dark:bg-dark-bg/50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-indigo-500/30 rounded-full hover:bg-indigo-500/50 transition-colors duration-200;
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  @apply bg-white/70 dark:bg-dark-card/70 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/50 shadow-lg dark:shadow-2xl rounded-2xl;
+}
+
+.glass-card {
+  @apply bg-white/40 dark:bg-dark-card/40 backdrop-blur-sm border border-slate-200/30 dark:border-slate-800/30 shadow-md rounded-xl hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300;
+}
+
+.glass-nav {
+  @apply bg-white/80 dark:bg-dark-bg/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-800/50;
+}
+
+.glass-input {
+  @apply bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl px-4 py-2 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all duration-200;
+}
+
+/* Custom Glowing effects */
+.glow-indigo {
+  box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.4);
+}
+
+.glow-purple {
+  box-shadow: 0 0 40px -10px rgba(139, 92, 246, 0.4);
+}
+
+/* Particle animation helper styling */
+.particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Hide default React App.css styles since we're using our own */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
