@@ -8,8 +8,26 @@ const apiRoutes = require('./routes/api');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Enable CORS
-app.use(cors());
+// Enable CORS for local dev and deployed Netlify frontend
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'http://localhost:5000',
+].filter(Boolean);
+
+app.use(cors({
+  origin(origin, callback) {
+    if (
+      !origin ||
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.netlify.app')
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked for origin: ${origin}`));
+    }
+  },
+}));
 
 // Body Parsing Middleware
 app.use(express.json());
