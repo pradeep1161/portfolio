@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { 
   Github, Linkedin, Mail, MapPin, Phone, ExternalLink, FileDown, 
   Terminal, Cpu, Code, Database, BookOpen, Briefcase, Award, 
-  Send, ShieldCheck, Sparkles, CheckCircle, ChevronRight, User, BarChart, X,
+  Send, ShieldCheck, Sparkles, CheckCircle, ChevronRight, User, X,
   MessageCircle, Instagram
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -75,7 +75,9 @@ export default function PublicPortfolio({ portfolio, setVisitorCount }) {
           if (tz.includes('America')) country = 'USA';
           else if (tz.includes('Europe')) country = 'Germany';
           else if (tz.includes('Asia/Kolkata')) country = 'India';
-        } catch (_) {}
+        } catch {
+          // Intl API unsupported; keep default country
+        }
 
         const res = await axios.post(`${API_BASE_URL}/api/analytics/view`, { country });
         if (res.data && res.data.totalViews) {
@@ -133,7 +135,7 @@ export default function PublicPortfolio({ portfolio, setVisitorCount }) {
             ...prev,
             [platform]: { loading: false, data: res.data }
           }));
-        } catch (err) {
+        } catch {
           setCodingStats(prev => ({
             ...prev,
             [platform]: { loading: false, data: null, error: true }
@@ -893,7 +895,7 @@ export default function PublicPortfolio({ portfolio, setVisitorCount }) {
                     <div className="space-y-3 text-xs text-slate-500 font-semibold">
                       <div className="flex justify-between border-b border-slate-100 dark:border-slate-800 pb-2">
                         <span>Username:</span>
-                        <span className="text-slate-850 dark:text-slate-100 font-bold">{codingStats.hackerrank.data.username}</span>
+                        <span className="text-slate-950 dark:text-slate-100 font-bold">{codingStats.hackerrank.data.username}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Problem Solving:</span>
@@ -941,7 +943,7 @@ export default function PublicPortfolio({ portfolio, setVisitorCount }) {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center text-xs text-slate-500 border-b border-slate-100 dark:border-slate-800 pb-2">
                         <span>Username:</span>
-                        <span className="text-slate-850 dark:text-slate-100 font-bold">{codingStats.smartinterviews.data.username}</span>
+                        <span className="text-slate-950 dark:text-slate-100 font-bold">{codingStats.smartinterviews.data.username}</span>
                       </div>
                       <div className="flex justify-between items-center text-xs text-slate-500">
                         <span>Global Rank:</span>
@@ -1200,7 +1202,7 @@ export default function PublicPortfolio({ portfolio, setVisitorCount }) {
                   href={activeProjectModal.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-850 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-100 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-750"
+                  className="flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700"
                 >
                   <Github size={14} /> Source Code
                 </a>

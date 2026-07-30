@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { 
   LayoutDashboard, User, FolderGit2, BookOpen, KeyRound, LogOut, 
   Trash2, Plus, Edit, Save, Upload, ShieldAlert, CheckCircle, 
-  Eye, MessageSquare, Globe, Heart, FileDown, Layers, Award, ShieldCheck, PenTool, Briefcase
+  Eye, MessageSquare, Globe, FileDown, Layers, Award, ShieldCheck, PenTool, Briefcase
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { API_BASE_URL } from '../context/AuthContext';
@@ -16,7 +16,6 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
   const [activeTab, setActiveTab] = useState('overview');
 
   // Portfolio local copy
-  const [portfolio, setPortfolio] = useState(initialPortfolio);
   const [profileForm, setProfileForm] = useState(initialPortfolio?.profile || {});
   const [avatarFile, setAvatarFile] = useState(null);
   const [resumeFile, setResumeFile] = useState(null);
@@ -70,7 +69,6 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
   // Synchronize when initialPortfolio changes
   useEffect(() => {
     if (initialPortfolio) {
-      setPortfolio(initialPortfolio);
       setProfileForm(initialPortfolio.profile);
       setEducation(initialPortfolio.education);
       setSkills(initialPortfolio.skills);
@@ -129,7 +127,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
       });
       setMessages(prev => prev.filter(m => m.id !== id && m._id !== id));
       showConfetti();
-    } catch (err) {
+    } catch {
       alert('Delete failed');
     }
   };
@@ -417,7 +415,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
       });
       setBlogs(prev => prev.filter(b => b.id !== id && b._id !== id));
       showConfetti();
-    } catch (err) {
+    } catch {
       alert('Delete failed');
     }
   };
@@ -456,7 +454,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'overview'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <LayoutDashboard size={18} />
@@ -468,7 +466,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'profile'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <User size={18} />
@@ -480,7 +478,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'sections'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <Layers size={18} />
@@ -492,7 +490,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'projects'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <FolderGit2 size={18} />
@@ -504,7 +502,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'blogs'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <PenTool size={18} />
@@ -516,7 +514,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             className={`w-full flex items-center space-x-2.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
               activeTab === 'security'
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'text-slate-655 dark:text-slate-355 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
           >
             <KeyRound size={18} />
@@ -636,7 +634,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                         .sort((a, b) => b[1] - a[1])
                         .map(([c, count]) => (
                           <div key={c} className="flex justify-between items-center text-xs font-semibold">
-                            <span className="text-slate-600 dark:text-slate-355">{c}</span>
+                            <span className="text-slate-600 dark:text-slate-300">{c}</span>
                             <span className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 rounded-md font-bold">{count}</span>
                           </div>
                         ))
@@ -654,7 +652,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                         const proj = projects.find(pr => pr.id === pId);
                         return (
                           <div key={pId} className="flex justify-between items-center text-xs font-semibold">
-                            <span className="text-slate-600 dark:text-slate-355 truncate max-w-[150px]">{proj ? proj.title : pId}</span>
+                            <span className="text-slate-600 dark:text-slate-300 truncate max-w-[150px]">{proj ? proj.title : pId}</span>
                             <span className="px-2 py-0.5 bg-indigo-500/10 text-indigo-500 rounded-md font-bold">{count}</span>
                           </div>
                         );
@@ -692,7 +690,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Profile Photo</label>
-                  <label className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-250 dark:border-slate-750">
+                  <label className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-200 dark:border-slate-700">
                     <Upload size={12} />
                     <span>Upload Image</span>
                     <input 
@@ -713,7 +711,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                 
                 <div className="space-y-1">
                   <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Resume PDF</label>
-                  <label className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-250 dark:border-slate-750">
+                  <label className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-200 dark:border-slate-700">
                     <Upload size={12} />
                     <span>Upload PDF</span>
                     <input 
@@ -736,7 +734,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                 onChange={(e) => setProfileForm({ ...profileForm, seekingInternship: e.target.checked })}
                 className="w-4 h-4 text-indigo-600 border-slate-300 dark:border-slate-800 rounded focus:ring-indigo-500"
               />
-              <span className="text-xs font-bold text-slate-700 dark:text-slate-355">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                 Display badge "Seeking AI/ML Internship Opportunities" on landing page
               </span>
             </label>
@@ -930,7 +928,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             <button
               type="submit"
               disabled={saveStatus.saving}
-              className="flex items-center gap-1.5 px-6 py-3 bg-indigo-600 hover:bg-indigo-755 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/10 disabled:opacity-50"
+              className="flex items-center gap-1.5 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/10 disabled:opacity-50"
             >
               <Save size={16} />
               <span>{saveStatus.saving ? 'Saving...' : 'Save Profile Changes'}</span>
@@ -1017,7 +1015,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               {education.length > 0 && (
                 <button
                   onClick={() => saveSectionList('/api/portfolio/education', education, setEducation)}
-                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-705 text-white text-xs font-bold rounded-lg shadow"
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg shadow"
                 >
                   <Save size={14} /> Save Education List
                 </button>
@@ -1086,7 +1084,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               {skills.length > 0 && (
                 <button
                   onClick={() => saveSectionList('/api/portfolio/skills', skills, setSkills)}
-                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-705 text-white text-xs font-bold rounded-lg shadow"
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg shadow"
                 >
                   <Save size={14} /> Save Skills Matrix
                 </button>
@@ -1165,7 +1163,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               {experience.length > 0 && (
                 <button
                   onClick={() => saveSectionList('/api/portfolio/experience', experience, setExperience)}
-                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-705 text-white text-xs font-bold rounded-lg shadow"
+                  className="flex items-center gap-1.5 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg shadow"
                 >
                   <Save size={14} /> Save Experience Timeline
                 </button>
@@ -1310,7 +1308,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Title</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Title</label>
                   <input
                     type="text"
                     required
@@ -1321,7 +1319,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Category</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Category</label>
                   <select
                     value={projectForm.category}
                     onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })}
@@ -1349,7 +1347,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Overview Description</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Overview Description</label>
                 <textarea
                   rows={3}
                   required
@@ -1362,7 +1360,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">GitHub Link</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">GitHub Link</label>
                   <input
                     type="url"
                     value={projectForm.github}
@@ -1372,7 +1370,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Live Demo Link</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Live Demo Link</label>
                   <input
                     type="url"
                     value={projectForm.demo}
@@ -1384,7 +1382,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Tech Stack (comma separated)</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Tech Stack (comma separated)</label>
                 <input
                   type="text"
                   required
@@ -1396,7 +1394,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Key Features (one per line)</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Key Features (one per line)</label>
                 <textarea
                   rows={3}
                   value={projectForm.features}
@@ -1408,9 +1406,9 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
 
               {/* Cover Image uploader */}
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455 block">Project Cover Image</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400 block">Project Cover Image</label>
                 <div className="flex items-center space-x-3">
-                  <label className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-850 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-250 dark:border-slate-750">
+                  <label className="flex items-center gap-1.5 px-3 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold rounded-lg cursor-pointer border border-slate-200 dark:border-slate-700">
                     <Upload size={12} />
                     <span>Upload Image</span>
                     <input 
@@ -1503,7 +1501,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Title</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Title</label>
                   <input
                     type="text"
                     required
@@ -1514,7 +1512,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Category</label>
+                  <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Category</label>
                   <select
                     value={blogForm.category}
                     onChange={(e) => setBlogForm({ ...blogForm, category: e.target.value })}
@@ -1541,7 +1539,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Tags (comma separated)</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Tags (comma separated)</label>
                 <input
                   type="text"
                   value={blogForm.tags}
@@ -1552,7 +1550,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Article Content</label>
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Article Content</label>
                 <textarea
                   rows={8}
                   required
@@ -1633,7 +1631,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             </h3>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Current Password</label>
+              <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Current Password</label>
               <input
                 type="password"
                 required
@@ -1645,7 +1643,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-slate-655 dark:text-slate-455">New Password</label>
+              <label className="text-xs font-bold text-slate-600 dark:text-slate-400">New Password</label>
               <input
                 type="password"
                 required
@@ -1657,7 +1655,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-xs font-bold text-slate-655 dark:text-slate-455">Confirm New Password</label>
+              <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Confirm New Password</label>
               <input
                 type="password"
                 required
@@ -1675,7 +1673,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
               </div>
             )}
             {secStatus.error && (
-              <div className="flex items-center space-x-2 p-3 bg-rose-500/10 text-rose-550 border border-rose-550/20 rounded-xl text-xs font-semibold">
+              <div className="flex items-center space-x-2 p-3 bg-rose-500/10 text-rose-500 border border-rose-500/20 rounded-xl text-xs font-semibold">
                 <ShieldAlert size={14} />
                 <span>{secStatus.error}</span>
               </div>
@@ -1684,7 +1682,7 @@ export default function AdminDashboard({ setCurrentView, initialPortfolio, onRef
             <button
               type="submit"
               disabled={secStatus.updating}
-              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-705 text-white font-bold rounded-xl shadow disabled:opacity-50 text-xs"
+              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow disabled:opacity-50 text-xs"
             >
               {secStatus.updating ? 'Updating...' : 'Update Password'}
             </button>

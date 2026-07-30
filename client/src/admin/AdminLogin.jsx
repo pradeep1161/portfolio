@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { ShieldAlert, KeyRound, User, Eye, EyeOff, Sparkles } from 'lucide-react';
 
@@ -54,7 +54,7 @@ export default function AdminLogin({ setCurrentView }) {
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-600 dark:text-slate-400">User ID</label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-450 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 pointer-events-none">
                 <User size={16} />
               </span>
               <input
@@ -70,7 +70,7 @@ export default function AdminLogin({ setCurrentView }) {
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-slate-600 dark:text-slate-400">Password</label>
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-450 pointer-events-none">
+              <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400 pointer-events-none">
                 <KeyRound size={16} />
               </span>
               <input

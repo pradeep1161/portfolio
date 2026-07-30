@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -35,11 +35,7 @@ function MainAppContent() {
   }, []);
 
   // Protect admin route
-  useEffect(() => {
-    if (currentView === 'admin' && !isAuthenticated) {
-      setCurrentView('login');
-    }
-  }, [currentView, isAuthenticated]);
+  const resolvedView = currentView === 'admin' && !isAuthenticated ? 'login' : currentView;
 
   // Handle active scroll section highlighting
   useEffect(() => {
@@ -81,37 +77,37 @@ function MainAppContent() {
       <ParticleBackground />
 
       {/* Floating Chat Assistant */}
-      {currentView !== 'admin' && <AIChatbot />}
+      {resolvedView !== 'admin' && <AIChatbot />}
 
       {/* Navigation */}
-      <Navbar 
-        activeSection={activeSection} 
-        setActiveSection={setActiveSection} 
-        currentView={currentView} 
-        setCurrentView={setCurrentView} 
+      <Navbar
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        currentView={resolvedView}
+        setCurrentView={setCurrentView}
       />
 
       {/* Render Main Content Screen */}
       <div className="flex-grow">
-        {currentView === 'portfolio' && (
-          <PublicPortfolio 
-            portfolio={portfolio} 
-            setVisitorCount={setVisitorCount} 
+        {resolvedView === 'portfolio' && (
+          <PublicPortfolio
+            portfolio={portfolio}
+            setVisitorCount={setVisitorCount}
           />
         )}
-        {currentView === 'blog' && <BlogSection />}
-        {currentView === 'login' && <AdminLogin setCurrentView={setCurrentView} />}
-        {currentView === 'admin' && (
-          <AdminDashboard 
-            setCurrentView={setCurrentView} 
-            initialPortfolio={portfolio} 
-            onRefreshPortfolio={fetchPortfolio} 
+        {resolvedView === 'blog' && <BlogSection />}
+        {resolvedView === 'login' && <AdminLogin setCurrentView={setCurrentView} />}
+        {resolvedView === 'admin' && (
+          <AdminDashboard
+            setCurrentView={setCurrentView}
+            initialPortfolio={portfolio}
+            onRefreshPortfolio={fetchPortfolio}
           />
         )}
       </div>
 
       {/* Footer (Hidden on Admin screen to maximize work area) */}
-      {currentView !== 'admin' && (
+      {resolvedView !== 'admin' && (
         <Footer profile={portfolio?.profile} visitorCount={visitorCount} />
       )}
     </div>
