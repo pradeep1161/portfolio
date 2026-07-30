@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
@@ -9,6 +9,12 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem('admin_token'));
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const logout = () => {
+    localStorage.removeItem('admin_token');
+    setToken(null);
+    setUser(null);
+  };
 
   useEffect(() => {
     const verifyToken = async () => {
@@ -39,7 +45,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await axios.post(`${API_BASE_URL}/api/auth/login`, { username, password });
       const { token: userToken, user: userData } = res.data;
-      
+
       localStorage.setItem('admin_token', userToken);
       setToken(userToken);
       setUser(userData);
@@ -48,12 +54,6 @@ export const AuthProvider = ({ children }) => {
       const message = err.response?.data?.message || 'Login failed. Please check credentials.';
       return { success: false, error: message };
     }
-  };
-
-  const logout = () => {
-    localStorage.removeItem('admin_token');
-    setToken(null);
-    setUser(null);
   };
 
   const updatePassword = async (currentPassword, newPassword) => {

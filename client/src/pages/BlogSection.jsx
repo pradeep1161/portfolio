@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BookOpen, Calendar, Tag, ChevronRight, X, ArrowLeft, PenTool } from 'lucide-react';
+import { BookOpen, Calendar, Tag, ChevronRight, ArrowLeft, PenTool } from 'lucide-react';
 import { API_BASE_URL } from '../context/AuthContext';
 
 export default function BlogSection() {
@@ -87,7 +87,7 @@ export default function BlogSection() {
             </div>
 
             {/* Content Body */}
-            <div className="text-sm sm:text-base text-slate-700 dark:text-slate-355 leading-relaxed space-y-4 border-t border-slate-100 dark:border-slate-800 pt-6 whitespace-pre-line font-medium">
+            <div className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed space-y-4 border-t border-slate-100 dark:border-slate-800 pt-6 whitespace-pre-line font-medium">
               {activeBlog.content}
             </div>
 
@@ -127,7 +127,7 @@ export default function BlogSection() {
             <div className="glass-panel p-12 text-center max-w-md mx-auto space-y-2">
               <PenTool size={36} className="text-slate-400 mx-auto animate-pulse" />
               <p className="text-slate-500 font-bold">No articles posted yet.</p>
-              <p className="text-xs text-slate-450">Articles published by the administrator will appear here.</p>
+              <p className="text-xs text-slate-400">Articles published by the administrator will appear here.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
